@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- لون لما يكون العنصر مختار -->
+    <item android:color="@color/bottom_nav_item_color" android:state_checked="true"/>
+
+    <!-- لون لما يكون العنصر مش مختار -->
+    <item android:color="@color/bottom_nav_item_color"/>
+
+</selector>
