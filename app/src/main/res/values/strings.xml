@@ -3,5 +3,12 @@
     <string name="hadeeth">Hadeeth</string>
     <string name="quran">Quran</string>
     <string name="tasbeeh">Tasbeeh</string>
+    <string name="suras_List">Suras List</string>
+    <array name="azkarList">
+        <item>سبحان الله</item>
+        <item>الحمد لله</item>
+        <item>لا اله الا الله</item>
+        <item>الله اكبر</item>
+    </array>
     <string name="radio">Radio</string>
 </resources>

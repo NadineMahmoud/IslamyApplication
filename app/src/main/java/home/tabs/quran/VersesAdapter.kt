@@ -1,27 +1,25 @@
 package home.tabs.quran
 
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.islamy.databinding.ItemVerseBinding
 
-class VersesAdapter(val verses : List<String>) :RecyclerView.Adapter<ViewHolder>(){
+class VersesAdapter(private val verses: List<String>) :
+    RecyclerView.Adapter<VersesAdapter.VerseViewHolder>() {
 
-    class viewHolder (val binding: ItemVerseBinding): RecyclerView.ViewHolder(
+    class VerseViewHolder(val binding: ItemVerseBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
-        binding.root
-    )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VerseViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = ItemVerseBinding.inflate(inflater, parent, false)
+        return VerseViewHolder(binding)
+    }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        TODO("Not yet implemented")
+    override fun onBindViewHolder(holder: VerseViewHolder, position: Int) {
+        holder.binding.content.text = verses[position]
     }
 
     override fun getItemCount(): Int = verses.size
-
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("Not yet implemented")
-    }
-
-
 }

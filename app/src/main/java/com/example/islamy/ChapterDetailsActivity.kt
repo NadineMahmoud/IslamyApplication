@@ -8,6 +8,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.islamy.databinding.ActivityChapterDetailsBinding
 import home.AppConstans
+import home.tabs.quran.VersesAdapter
+import home.tabs.quran.chapters_adapter
 import models.chapter
 
 class ChapterDetailsActivity : AppCompatActivity() {
@@ -22,8 +24,10 @@ class ChapterDetailsActivity : AppCompatActivity() {
 
     }
 
+    lateinit var adapter: VersesAdapter
     private fun initRecyclerview() {
-        binding.content.versesRecycler.adapter =
+        adapter = VersesAdapter(versList)
+        binding.content.versesRecycler.adapter = adapter
     }
 
     fun init(){
@@ -37,15 +41,19 @@ class ChapterDetailsActivity : AppCompatActivity() {
                 AppConstans.EXTRA.Extra_CHAPTER
             )
         }
+        binding.toolBar.toolBarTitle.text = Chapter?.titleEN
+        binding.content.chapterTitleAR.text = Chapter?.titleAR
         readChapterDetails(Chapter?.index?:0)
     }
 
     lateinit var versList : List<String>
 
-    fun readChapterDetails(chapterIndex:Int){
-        val content = assets.open("quran/$chapterIndex.txt")
+    fun readChapterDetails(chapterIndex: Int) {
+        val content = assets.open("quran/${chapterIndex + 1}.txt")
             .bufferedReader().use { it.readText() }
         versList = content.split("\n")
 
+        adapter = VersesAdapter(versList)
+        binding.content.versesRecycler.adapter = adapter
     }
 }

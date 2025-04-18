@@ -64,8 +64,12 @@
             android:id="@+id/verses_recycler"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_verse"
             app:layout_constraintHeight_percent=".75"
             app:layout_constraintTop_toBottomOf="@id/chapter_title_AR"
             app:layout_constraintBottom_toBottomOf="parent"/>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
